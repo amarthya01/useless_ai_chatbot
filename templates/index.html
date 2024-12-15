@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless AI Bot</title>
+</head>
+<body>
+    <h1>Welcome to the Useless AI Bot</h1>
+    
+    <form id="chatForm">
+        <input type="text" id="message" placeholder="Ask anything!" />
+        <button type="submit">Send</button>
+    </form>
+    
+    <div id="response">
+        <p id="userMessage"></p>
+        <p id="botReply"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('chatForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const message = document.getElementById('message').value;
+
+            // If the message is empty, return early
+            if (!message.trim()) {
+                alert("Please enter a message!");
+                return;
+            }
+
+            // Send message to the server
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+            
+            // Get the response data
+            const data = await response.json();
+
+            // Display the message and bot response
+            document.getElementById('userMessage').innerText = `You: ${data.user_message}`;
+            document.getElementById('botReply').innerText = `Bot: ${data.bot_response}`;
+            
+            // Clear the input field after submission
+            document.getElementById('message').value = '';
+        });
+    </script>
+</body>
+</html>
