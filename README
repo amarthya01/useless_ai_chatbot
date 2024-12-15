@@ -1,0 +1,127 @@
+Useless AI Bot
+
+Welcome to the Useless AI Bot project! This is a chatbot that gives intentionally vague, silly, or completely useless answers to any question. Whether you're looking for an answer or just want to have a laugh, this bot is here to provide some nonsensical wisdom.
+
+---
+
+## Features
+
+- Random Responses: The bot generates humorous, bizarre, or vague responses to any question you ask.
+- Easy Setup: It’s a simple Flask-based web application that runs locally.
+- Interactive Web Interface: Use the chatbot directly through a basic HTML interface.
+  
+---
+
+## Tech Stack
+
+- Backend: Python, Flask
+- Frontend: HTML, CSS, JavaScript
+- API: Custom response generation
+- Dependencies:
+  - Flask
+  - JSON
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Python 3.x (Recommended: Python 3.8 or higher)
+- pip (Python package installer)
+
+### Steps
+
+1. Clone the Repository:
+   ```
+   git clone https://github.com/amarthya01/useless_ai_chatbot.git
+   ```
+
+2. Navigate to the Project Folder:
+   ```
+   cd useless_ai_chatbot
+   ```
+
+3. Create and Activate a Virtual Environment:
+   - On Windows:
+     ```
+     python -m venv env
+     .\env\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```
+     python3 -m venv env
+     source env/bin/activate
+     ```
+
+4. Install Dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+5. Run the Flask Application:
+   ```
+   python app.py
+   ```
+   The app will be running at [http://127.0.0.1:5000](http://127.0.0.1:5000).
+
+6. Interact with the Bot:
+   Open your browser and go to [http://127.0.0.1:5000](http://127.0.0.1:5000). You can type in any question, and the bot will respond with a random useless answer.
+
+---
+
+## API Usage
+
+### POST /chat
+
+Send a POST request to `/chat` with a JSON body containing the user message. Example:
+
+#### Request:
+```json
+{
+  "message": "Why is the sky blue?"
+}
+```
+
+#### Response:
+```json
+{
+  "user_message": "Why is the sky blue?",
+  "bot_response": "My circuits suggest yes. Or no. Probably."
+}
+```
+
+### Example (Using Python `requests` library):
+```python
+import requests
+
+url = "http://127.0.0.1:5000/chat"
+payload = {"message": "Why is the sky blue?"}
+
+response = requests.post(url, json=payload)
+print(response.json())
+```
+
+---
+
+## Contributing
+
+Feel free to fork this project, create pull requests, or raise issues. This project is meant to be fun, so feel free to add your own weird responses or features!
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## Credits
+
+- Created by Amarthya  
+- Inspired by the concept of generating nonsensical AI responses.
+
+---
+
+### Note:
+- This project is not intended for serious use and is meant to be a fun, creative experiment.
